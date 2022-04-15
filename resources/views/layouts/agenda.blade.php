@@ -22,7 +22,7 @@
                                     <a class="nav-link active" aria-current="page" href="{{route('inicio')}}"><i class="fa-solid fa-house-user fa-lg me-2"></i>Inicio</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa-solid fa-rectangle-list fa-lg me-2"></i>Categorias</a>
+                                    <a class="nav-link" href="{{route('categorias.index')}}"><i class="fa-solid fa-rectangle-list fa-lg me-2"></i>Categorias</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"><i class="fa-solid fa-id-card fa-lg me-2"></i>Contactos</a>

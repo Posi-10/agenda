@@ -10,14 +10,14 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h1 class="display-5 fw-bold">Aganeda con laravel 8</h1>
+                            <h1 class="display-4">Aganeda con laravel 8</h1>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-12">
                             <div class="container">
                                 <div class="row mt-3">
-                                    <div class="col-6">
+                                    <div class="col-6 align-self-center">
                                         <p class="fs-3" style="font-family: 'Kaushan Script', cursive;">
                                             Esta agenda es el examen de Programacion Logica y Funcional de la unidad 2
                                         </p>
