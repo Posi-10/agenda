@@ -3,21 +3,34 @@
 @section('tituloPagina', 'Inicio')
     
 @section('contenido')
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form action="">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-10 align-self-center">
+            <div class="p-2 bg-light rounded-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1 class="display-5 fw-bold">Aganeda con laravel 8</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container">
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <p class="fs-3" style="font-family: 'Kaushan Script', cursive;">
+                                            Esta agenda es el examen de Programacion Logica y Funcional de la unidad 2
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{{asset('images/moris.webp')}}" class="img-fluid" alt="..." width="100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary"><i class="fa-brands fa-500px"></i></button>
-                    <button type="button" class="btn btn-primary">Middle</button>
-                    <button type="button" class="btn btn-primary">Right</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

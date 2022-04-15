@@ -62,3 +62,36 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+___
+## Dependencias locales 
+
+### Bootstrap
+
+Para poder instalar las dependecios en forma local en el proyecto es necesario tener instalado [Node.js](https://nodejs.org/es/), lo cula es se nesecita hacer estos pasos en la terminal deltro del proyecto:
+
+1. `composer require laravel/ui`
+2. `php artisan ui bootstrap`
+3. `npm install`
+4. `npm run dev`
+
+### Font Awesome
+
+Para poder hacer esta instalacion es de estaforma:
+
+1. `npm install --save @fortawesome/fontawesome-free`
+2. tenemos qye poner `@import '~@fortawesome/fontawesome-free/css/all.css';` en el archivo  `resources/sass/app.scss`
+3. `npm run dev`
+
+### JQuery
+
+1. `npm install jquery`
+2. poner esto: `window.$ = require('jquery');` en el archivo `resources/js/bootstrap.js`
+3. `npm run dev`
+
+### DataTables
+
+1. `npm install datatables.net datatables.net-dt`
+2. enemos qye poner `@import '~datatables.net-dt/css/jquery.dataTables.css';` en el archivo  `resources/sass/app.scss`
+3. poner esto: `window.dt = require('datatables.net');` en el archivo `resources/js/bootstrap.js`
+4. `npm run dev`
