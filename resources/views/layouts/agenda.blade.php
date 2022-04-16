@@ -25,7 +25,7 @@
                                     <a class="nav-link" href="{{route('categorias.index')}}"><i class="fa-solid fa-rectangle-list fa-lg me-2"></i>Categorias</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa-solid fa-id-card fa-lg me-2"></i>Contactos</a>
+                                    <a class="nav-link" href="{{route('contactos.index')}}"><i class="fa-solid fa-id-card fa-lg me-2"></i>Contactos</a>
                                 </li>
                             </ul>
                         </div>

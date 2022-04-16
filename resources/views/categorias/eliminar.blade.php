@@ -1,4 +1,4 @@
-@extends('../layouts/agenda')
+@extends('layouts/agenda')
 
 @section('tituloPagina', 'Eliminar categoria')
 
