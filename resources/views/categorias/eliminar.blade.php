@@ -15,11 +15,11 @@
                     <form action="" method="POST">
                         <div class="mb-3">
                             <label for="nombre" class="form-label lead"><i class="fa-solid fa-user-pen me-2"></i>Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" disabled>
+                            <input type="text" class="form-control" id="nombre" name="nombre" disabled value="{{$categorias->nombre}}">
                         </div>
                         <div class="mb-3">
                             <label for="descripcion" class="form-label lead"><i class="fa-solid fa-audio-description me-2"></i>Descripcion</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="6" disabled></textarea>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="6" disabled>{{$categorias->descripcion}}</textarea>
                         </div>
                         <div class="container-fluid p-0">
                             <div class="row">
@@ -52,7 +52,11 @@
                               Una vez que elimines esta categoria ya no la puedes recuperar
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-danger rounded-pill">Eliminar</button>
+                                <form action="{{route('categorias.destroy', $categorias->id_categoria)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" method="POST" class="btn btn-outline-danger rounded-pill">Eliminar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
