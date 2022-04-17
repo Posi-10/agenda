@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="descripcion" class="form-label lead"><i class="fa-solid fa-audio-description me-2"></i>Descripcion</label>
-                                        <textarea class="form-control" id="descripcion" name="descripcion" rows="6" required>{{$categorias->nombre}}</textarea>
+                                        <textarea class="form-control" id="descripcion" name="descripcion" rows="6" required>{{$categorias->descripcion}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="d-grid gap-2">
-                                        <button type="button" class="btn btn-outline-warning rounded-pill"><i class="fa-solid fa-person-walking-arrow-loop-left fa-lg me-2"></i>Cancelar</button>
+                                        <a href="{{route('categorias.index')}}" class="btn btn-outline-warning rounded-pill"><i class="fa-solid fa-person-walking-arrow-loop-left fa-lg me-2"></i>Cancelar</a>
                                     </div>
                                 </div>
                             </div>

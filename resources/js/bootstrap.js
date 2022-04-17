@@ -1,6 +1,6 @@
 window._ = require('lodash');
 window.$ = require('jquery');
-window.dt = require('datatables.net');
+window.dt = require('datatables.net-bs5')(window, $);
 
 try {
     require('bootstrap');

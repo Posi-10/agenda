@@ -91,7 +91,7 @@ Para poder hacer esta instalacion es de estaforma:
 
 ### DataTables
 
-1. `npm install datatables.net datatables.net-dt`
-2. enemos qye poner `@import '~datatables.net-dt/css/jquery.dataTables.css';` en el archivo  `resources/sass/app.scss`
-3. poner esto: `window.dt = require('datatables.net');` en el archivo `resources/js/bootstrap.js`
+1. `npm install datatables.net-bs5`
+2. enemos qye poner `@import '~datatables.net-bs5/css/dataTables.bootstrap5.css';` en el archivo  `resources/sass/app.scss`
+3. poner esto: `window.dt = require('datatables.net-bs5')(window, $);` en el archivo `resources/js/bootstrap.js`
 4. `npm run dev`

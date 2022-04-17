@@ -10,21 +10,18 @@
             </div>
         </div>
         @if ($mensaje=Session::get('save'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success" role="alert">
                 {{$mensaje}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @if ($mensaje=Session::get('update'))
-            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <div class="alert alert-primary" role="alert">
                 {{$mensaje}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @if ($mensaje=Session::get('drop'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger" role="alert">
                 {{$mensaje}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         <div class="row my-2">
@@ -34,7 +31,7 @@
         </div>
         <div class="row mt-4">
             <div class="col">
-                <table class="table table-striped table-hover table-borderless table-responsive">
+                <table id="tablasContactos" class="table table-striped table-hover table-borderless table-responsive">
                     <thead>
                         <tr>
                             <th scope="col" class="lead">Apellido paterno</th>
@@ -65,4 +62,15 @@
             </div>
         </div>
     </div>
+    @section('dataTable')
+        <script>
+                $(()=>{
+                    $('#tablasContactos').DataTable({
+                        "language": {
+                            "url": "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-MX.json"
+                        }
+                    });
+                });
+        </script>    
+    @endsection
 @endsection
