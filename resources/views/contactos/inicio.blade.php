@@ -9,6 +9,24 @@
                 <h1 class="display-4">Contactos</h1>
             </div>
         </div>
+        @if ($mensaje=Session::get('save'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{$mensaje}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if ($mensaje=Session::get('update'))
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{$mensaje}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if ($mensaje=Session::get('drop'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{$mensaje}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="row my-2">
             <div class="col">
                 <a href="{{route('contactos.create')}}" class="btn btn-outline-success rounded-pill"><i class="fa-solid fa-circle-plus fa-lg me-2"></i>Agregar</a>
@@ -30,16 +48,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($listados as $item)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$item->apellido_paterno}}</td>
+                            <td>{{$item->apellido_materno}}</td>
+                            <td>{{$item->nombre}}</td>
+                            <td>{{$item->telefono}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->nombre_categoria}}</td>
+                            <td><a href="{{route('contactos.edit',$item->id_contacto)}}" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <td><a href="{{route('contactos.show',$item->id_contacto)}}" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a></td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

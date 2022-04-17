@@ -12,7 +12,9 @@
         <div class="row mt-4 align-items-center justify-content-center">
             <div class="col-8 align-self-center">
                 <div class="alert alert-success" role="alert">
-                    <form action="" method="POST">
+                    <form action="{{route('contactos.store')}}" method="POST">
+                        @csrf
+                        @method('POST')
                         <div class="container">
                             <div class="row my-2">
                                 <div class="col-6">
@@ -41,6 +43,10 @@
                                     <div class="mb-3">
                                         <label class="form-label lead" for="categoria"><i class="fa-solid fa-list me-2"></i>Categoria</label>
                                         <select class="form-select" id="categoria" name="categoria" required>
+                                                <option selected>Selecciona una opcion</option>
+                                            @foreach ($categorias as $item)
+                                                <option value="{{$item->id_categoria}}">{{$item->nombre}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -48,7 +54,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-grid gap-2">
-                                        <button type="button" class="btn btn-outline-success rounded-pill"><i class="fa-solid fa-circle-plus fa-lg me-2"></i>Agregar</button>
+                                        <button type="success" class="btn btn-outline-success rounded-pill"><i class="fa-solid fa-circle-plus fa-lg me-2"></i>Agregar</button>
                                     </div>
                                 </div>
                             </div>

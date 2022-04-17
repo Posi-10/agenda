@@ -18,30 +18,29 @@
                                 <div class="col-6">
                                     <div class="mb-3">
                                         <label for="apellido_paterno" class="form-label lead"><i class="fa-solid fa-signature me-2"></i>Apellido paterno</label>
-                                        <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" disabled>
+                                        <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" value="{{$contactos->apellido_paterno}}" disabled>
                                     </div>
                                     <div class="mb-3">
                                         <label for="apellido_materno" class="form-label lead"><i class="fa-solid fa-signature me-2"></i>Apellido materno</label>
-                                        <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" disabled>
+                                        <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" value="{{$contactos->apellido_materno}}" disabled>
                                     </div>
                                     <div class="mb-3">
                                         <label for="nombre" class="form-label lead"><i class="fa-solid fa-user-pen me-2"></i>Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" disabled>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$contactos->nombre}}" disabled>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">
                                         <label for="email" class="form-label lead"><i class="fa-solid fa-at me-2"></i>E-mail</label>
-                                        <input type="email" class="form-control" id="email" name="email" disabled>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{$contactos->email}}" disabled>
                                     </div>
                                     <div class="mb-3">
                                         <label for="telefono" class="form-label lead"><i class="fa-solid fa-phone me-2"></i>Telefono</label>
-                                        <input class="form-control" id="telefono" type="tel" name="telefono" disabled>
+                                        <input class="form-control" id="telefono" type="tel" name="telefono" value="{{$contactos->telefono}}" disabled>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label lead" for="categoria"><i class="fa-solid fa-list me-2"></i>Categoria</label>
-                                        <select class="form-select" id="categoria" name="categoria" disabled>
-                                        </select>
+                                        <input class="form-control" id="categoria" name="categoria" value="{{$contactos->nombre_categoria}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +74,11 @@
                               Una vez que elimines esta categoria ya no la puedes recuperar
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-danger rounded-pill">Eliminar</button>
+                                <form action="{{route('contactos.destroy', $contactos->id_contacto)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" method="POST" class="btn btn-outline-danger rounded-pill">Eliminar</button>
+                                </form>
                             </div>
                         </div>
                     </div>

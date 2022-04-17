@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Contacto;
+use App\Models\ContactoListado;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
@@ -14,7 +16,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        return view('contactos/inicio');
+        $listados = ContactoListado::all();
+        return view('contactos/inicio', compact('listados'));
     }
 
     /**
@@ -24,7 +27,8 @@ class ContactoController extends Controller
      */
     public function create()
     {
-        return view('contactos/agregar');
+        $categorias = Categoria::all();
+        return view('contactos/agregar', compact('categorias'));
     }
 
     /**
@@ -35,7 +39,15 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contactos = new Contacto();
+        $contactos->id_categoria = $request->post('categoria');
+        $contactos->nombre = $request->post('nombre');
+        $contactos->apellido_paterno = $request->post('apellido_paterno');
+        $contactos->apellido_materno = $request->post('apellido_materno');
+        $contactos->telefono = $request->post('telefono');
+        $contactos->email = $request->post('email');
+        $contactos->save();
+        return redirect()->route('contactos.index')->with('save', '¡Agregado con exito!');
     }
 
     /**
@@ -44,9 +56,10 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function show(Contacto $contacto)
+    public function show($id)
     {
-        return view('contactos/eliminar');
+        $contactos = ContactoListado::find($id);
+        return view('contactos/eliminar', compact('contactos'));
     }
 
     /**
@@ -55,9 +68,11 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contacto $contacto)
+    public function edit($id)
     {
-        return view('contactos/editar');
+        $contactos = Contacto::find($id);
+        $categorias = Categoria::all();
+        return view('contactos/editar', compact('contactos', 'categorias'));
     }
 
     /**
@@ -67,9 +82,17 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contacto $contacto)
+    public function update(Request $request, $id)
     {
-        //
+        $contactos = Contacto::find($id);
+        $contactos->id_categoria = $request->post('categoria');
+        $contactos->nombre = $request->post('nombre');
+        $contactos->apellido_paterno = $request->post('apellido_paterno');
+        $contactos->apellido_materno = $request->post('apellido_materno');
+        $contactos->telefono = $request->post('telefono');
+        $contactos->email = $request->post('email');
+        $contactos->save();
+        return redirect()->route('contactos.index')->with('update', '¡Actualizado con exito!');
     }
 
     /**
@@ -78,8 +101,10 @@ class ContactoController extends Controller
      * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contacto $contacto)
+    public function destroy($id)
     {
-        //
+        $contactos = Contacto::find($id);
+        $contactos->delete();
+        return redirect()->route('contactos.index')->with('drop', '¡Eliminado con exito!');
     }
 }
